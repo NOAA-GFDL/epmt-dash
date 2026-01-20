@@ -127,7 +127,7 @@ def url_gen(graph_type='', jobs=[], model='', parameters=[], host='localhost', p
         return "Bad graph type or incomplete request"
 
     # gantt suffix will be a single jobid
-    if graph_type is 'gantt':
+    if graph_type == 'gantt':
         urlsuffix = '/' + ','.join(jobs)
         if model:
             # Logger info
@@ -137,7 +137,7 @@ def url_gen(graph_type='', jobs=[], model='', parameters=[], host='localhost', p
     # boxplot
     # suffix will be a single model
     # Apply jobs as comma separated query
-    if graph_type is 'boxplot':
+    if graph_type == 'boxplot':
         urlsuffix = '/' + model
 
         # Convert jobs into comma separated
