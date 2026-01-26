@@ -1,16 +1,13 @@
 name: Run Unit Tests
 
 on:
-  pull_request:
+  push:
     branches:
       - '**'
 
-permissions:
-  contents: read
-
 jobs:
   unit-tests:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
     env:
       EPMT_GUI_MOCK: "1"
@@ -22,7 +19,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.7'
+          python-version: '3.11'
           cache: 'pip'
 
       - name: Install dependencies
