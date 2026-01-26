@@ -5,6 +5,9 @@ on:
     branches:
       - '**'
 
+permissions:
+  contents: read
+
 jobs:
   unit-tests:
     runs-on: ubuntu-20.04
