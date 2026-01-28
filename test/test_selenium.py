@@ -4,9 +4,11 @@ A simple selenium test example written by python
 
 import unittest
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 
 
+@unittest.skip("Requires external website https://www.oursky.com/")
 class TestTemplate(unittest.TestCase):
     """Include test cases on a given url"""
 
@@ -27,7 +29,7 @@ class TestTemplate(unittest.TestCase):
         """Find and click top-right button"""
         try:
             self.driver.get('https://www.oursky.com/')
-            el = self.driver.find_element_by_class_name('btn-header')
+            el = self.driver.find_element(By.CLASS_NAME, 'btn-header')
             el.click()
         except NoSuchElementException as ex:
             self.fail(ex.msg)
@@ -36,7 +38,8 @@ class TestTemplate(unittest.TestCase):
         """Find and click Learn more button"""
         try:
             self.driver.get('https://www.oursky.com/')
-            el = self.driver.find_element_by_xpath(".//*[@id='tag-line-wrap']/span/a")
+            el = self.driver.find_element(
+                By.XPATH, ".//*[@id='tag-line-wrap']/span/a")
             el.click()
         except NoSuchElementException as ex:
             self.fail(ex.msg)

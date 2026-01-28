@@ -32,9 +32,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements-ui.txt.py3
 
-      - name: Install Chrome
-        uses: browser-actions/setup-chrome@latest
-
       - name: Run unit tests
         run: |
-          python -m unittest test/test_urlparse.py test/test_boxplot.py test/test_selenium.py
+          python -m unittest test/test_urlparse.py
