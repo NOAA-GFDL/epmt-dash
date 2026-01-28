@@ -7,3 +7,4 @@ pandas<2
 pytest
 pytest-mock
 pytest-sugar
+selenium
