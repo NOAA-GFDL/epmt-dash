@@ -34,7 +34,7 @@ jobs:
 
       - name: Run unit tests
         run: |
-          python -m unittest test/test_urlparser.py
+          python test/test_urlparser.py
 
   pylint:
     runs-on: ubuntu-latest
