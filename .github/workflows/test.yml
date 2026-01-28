@@ -35,3 +35,27 @@ jobs:
       - name: Run unit tests
         run: |
           python -m unittest test/test_urlparse.py
+
+  pylint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: 'requirements-ui.txt.py3'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-ui.txt.py3
+          pip install pylint
+
+      - name: Run pylint
+        run: |
+          pylint --rcfile=pylintrc *.py components/*.py
