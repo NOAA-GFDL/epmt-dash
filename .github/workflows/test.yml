@@ -27,8 +27,7 @@ jobs:
           cache: 'pip'
           cache-dependency-path: 'requirements-ui.txt.py3'
 
-      - name: Install dependencies (GUARDED)
-        continue-on-error: true
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements-ui.txt.py3
@@ -36,31 +35,31 @@ jobs:
       - name: Run test_boxplot (GUARDED)
         continue-on-error: true
         run: |
-          python -m unittest test/test_boxplot.py
+          python -m unittest --verbose test/test_boxplot.py
 
       - name: Run test_bsly001 (GUARDED)
         continue-on-error: true
         run: |
-          python -m unittest test/test_bsly001.py
+          python -m unittest --verbose test/test_bsly001.py
 
       - name: Run test_find_and_click (GUARDED)
         continue-on-error: true
         run: |
-          python -m unittest test/test_find_and_click.py
+          python -m unittest --verbose test/test_find_and_click.py
 
       - name: Run test_selenium (GUARDED)
         continue-on-error: true
         run: |
-          python -m unittest test/test_selenium.py
+          python -m unittest --verbose test/test_selenium.py
 
       - name: Run test_urlparse
         run: |
-          python -m unittest test/test_urlparse.py
+          python -m unittest --verbose test/test_urlparse.py
 
       - name: Run test_workflow_find_and_click (GUARDED)
         continue-on-error: true
         run: |
-          python -m unittest test/test_workflow_find_and_click.py
+          python -m unittest --verbose test/test_workflow_find_and_click.py
 
   pylint:
     runs-on: ubuntu-latest
