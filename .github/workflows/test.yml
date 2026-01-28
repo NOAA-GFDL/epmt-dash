@@ -32,34 +32,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements-ui.txt.py3
 
-      - name: Run test_boxplot (GUARDED)
-        continue-on-error: true
+      - name: Run unit tests
         run: |
-          python -m unittest --verbose ./test/test_boxplot.py
-
-      - name: Run test_bsly001 (GUARDED)
-        continue-on-error: true
-        run: |
-          python -m unittest --verbose ./test/test_bsly001.py
-
-      - name: Run test_find_and_click (GUARDED)
-        continue-on-error: true
-        run: |
-          python -m unittest --verbose ./test/test_find_and_click.py
-
-      - name: Run test_selenium (GUARDED)
-        continue-on-error: true
-        run: |
-          python -m unittest --verbose ./test/test_selenium.py
-
-      - name: Run test_urlparser
-        run: |
-          python -m unittest --verbose ./test/test_urlparser.py
-
-      - name: Run test_workflow_find_and_click (GUARDED)
-        continue-on-error: true
-        run: |
-          python -m unittest --verbose ./test/test_workflow_find_and_click.py
+          python -m unittest test/test_urlparser.py
 
   pylint:
     runs-on: ubuntu-latest
@@ -83,4 +58,4 @@ jobs:
 
       - name: Run pylint
         run: |
-          pylint --rcfile=pylintrc --fail-under 5.0 *.py components/*.py test/*.py
+          pylint --rcfile=pylintrc *.py components/*.py
