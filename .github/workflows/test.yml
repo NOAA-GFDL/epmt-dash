@@ -52,9 +52,9 @@ jobs:
         run: |
           python -m unittest --verbose ./test/test_selenium.py
 
-      - name: Run test_urlparse
+      - name: Run test_urlparser
         run: |
-          python -m unittest --verbose ./test/test_urlparse.py
+          python -m unittest --verbose ./test/test_urlparser.py
 
       - name: Run test_workflow_find_and_click (GUARDED)
         continue-on-error: true
