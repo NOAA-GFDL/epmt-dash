@@ -79,7 +79,6 @@ class JobGen:
             }, inplace=True)
         else:
             self.jobs_df = pd.DataFrame([["No Jobs ", str(errmsg) if errmsg else None]] , columns=['job id','exit status'])
-            self.jobs_df.append(pd.Series(), ignore_index=True)
             logger.debug(
                 "No jobs found, here is an empty jobs_df\n%s", self.jobs_df)
 

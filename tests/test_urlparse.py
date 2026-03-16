@@ -3,7 +3,7 @@ Test url path handling and generation
 """
 
 import unittest
-from components import url_parser
+from epmt_dash.components import url_parser
 
 class TestTemplate(unittest.TestCase):
     """Include test cases on a given url"""
