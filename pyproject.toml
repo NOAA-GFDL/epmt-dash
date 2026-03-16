@@ -50,3 +50,10 @@ epmt_dash = ["assets/*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+addopts = [
+    "--ignore=tests/boxplot_test.py",
+    "--ignore=tests/bsly001.py",
+    "--ignore=tests/find_and_click.py",
+    "--ignore=tests/selenium_test.py",
+    "--ignore=tests/workflow_find_and_click.py",
+]

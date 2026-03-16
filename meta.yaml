@@ -1,0 +1,45 @@
+{% set name = "epmt-dash" %}
+{% set version = "0.1.0" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  path: .
+
+build:
+  noarch: python
+  number: 0
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python >=3.9
+    - pip
+    - setuptools >=64
+  run:
+    - python >=3.9
+    - dash
+    - dash-bootstrap-components
+    - dash-daq
+    - numpy
+    - pandas
+
+test:
+  imports:
+    - epmt_dash
+  commands:
+    - pip check
+  requires:
+    - pip
+
+about:
+  home: https://github.com/NOAA-GFDL/epmt-dash
+  summary: EPMT Workflow GUI - Dash-based visual analysis for the Experiment Performance Management Tool
+  license: LGPL-2.1-only
+  license_file: LICENSE
+
+extra:
+  recipe-maintainers:
+    - ilaflott

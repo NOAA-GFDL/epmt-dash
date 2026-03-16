@@ -1,0 +1,15 @@
+name: epmt-dash
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python >=3.9
+  - pip
+  - dash
+  - dash-bootstrap-components
+  - dash-daq
+  - numpy
+  - pandas
+  - pytest
+  - pytest-mock
+  - pytest-sugar

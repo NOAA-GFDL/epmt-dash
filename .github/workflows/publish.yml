@@ -1,14 +1,16 @@
 name: Publish to PyPI
 
 on:
-  push:
-    branches: [main]
+  release:
+    types: [published]
 
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
     permissions:
       id-token: write
+      contents: read
+    environment: pypi
     steps:
       - uses: actions/checkout@v4
 

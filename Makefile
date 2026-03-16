@@ -1,5 +1,5 @@
 default: run
-.PHONY: unit-test dash-test test
+.PHONY: unit-test dash-test test build-pkg
 
 build: 
 	rm -f requirements.txt.py3
@@ -27,4 +27,6 @@ build-chromedriver-service:
 start-chromedriver:
 	docker run --rm  --name chromedriver -p 127.0.0.1:4444:4444 python-chromedriver-ser:latest
 unit-test:
-	EPMT_GUI_MOCK=1 python -m pytest test/test_urlparse.py
+	EPMT_GUI_MOCK=1 python -m pytest tests/test_urlparse.py
+build-pkg:
+	python -m build
