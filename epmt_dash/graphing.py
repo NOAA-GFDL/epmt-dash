@@ -8,7 +8,7 @@ logger = getLogger(__name__)
 from .dash_config import MOCK_EPMT_API
 if MOCK_EPMT_API:
     logger.info("Using Mock API")
-    from epnt.epmt_query_mock import get_procs, get_ops, get_refmodels, get_jobs
+    from .epmt_query_mock import get_procs, get_ops, get_refmodels, get_jobs
 else:
     logger.info("Using EPMT API")
     from epmt.epmt_query import get_procs, get_ops, get_refmodels, get_jobs

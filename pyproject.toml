@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "epmt-dash"
+version = "0.1.0"
+description = "EPMT Workflow GUI – Dash-based visual analysis for the Experiment Performance Management Tool"
+readme = "README.md"
+license = "LGPL-2.1-only"
+requires-python = ">=3.9"
+authors = [
+    { name = "NOAA-GFDL" },
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Framework :: Dash",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+dependencies = [
+    "dash",
+    "dash-bootstrap-components",
+    "dash-daq",
+    "numpy",
+    "pandas",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "pytest-mock",
+    "pytest-sugar",
+]
+
+[project.urls]
+Homepage = "https://github.com/NOAA-GFDL/epmt-dash"
+Repository = "https://github.com/NOAA-GFDL/epmt-dash"
+Issues = "https://github.com/NOAA-GFDL/epmt-dash/issues"
+
+[tool.setuptools.packages.find]
+include = ["epmt_dash*"]
+
+[tool.setuptools.package-data]
+epmt_dash = ["assets/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

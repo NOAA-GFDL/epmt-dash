@@ -7,7 +7,7 @@ import random
 from copy import deepcopy
 from logging import getLogger
 import pandas as pd
-import jobs as job
+from . import jobs as job
 
 # We log how we want
 # pylint: disable=invalid-name, logging-format-interpolation
